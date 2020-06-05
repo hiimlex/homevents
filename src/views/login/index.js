@@ -1,18 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./index.css";
+import logo from "../../assets/logo.png";
+
+import firebase from "../../config/firebase";
+import "firebase/auth";
 
 function Login() {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [msg, setMsg] = useState();
+
+    function SignIn() {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(() => {
+                setMsg("Y");
+            })
+            .catch(() => {
+                setMsg("N");
+            });
+    }
+
     return (
         <div className="login-content d-flex align-itens-center">
             <form className="form-signin mx-auto">
+                <div className="d-flex align-itens-center justify-content-center">
+                    <img
+                        src={logo}
+                        className="img-fluid"
+                        alt="logo"
+                        style={{ width: 280, marginBottom: 0, marginTop: -80 }}
+                    />
+                </div>
                 <div className="text-center mb-4">
                     <h1 className="h3 mb-3 font-weight-bold text-white">
-                        Login
+                        Enjoy to our Plataform
                     </h1>
                 </div>
 
                 <input
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
                     type="email"
                     id="inputEmail"
                     className="form-control my-2"
@@ -20,37 +51,44 @@ function Login() {
                 />
 
                 <input
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                    }}
                     type="password"
                     id="inputPassword"
                     className="form-control my-2"
-                    placeholder="Senha"
+                    placeholder="Password"
                 />
 
                 <button
-                    className="btn btn-lg btn-login btn-block"
-                    type="submit"
+                    className="btn btn-lg btn-login btn-block font-weight-bold"
+                    type="button"
+                    onClick={SignIn}
                 >
-                    Login
+                    Sign In
                 </button>
 
                 <div className="msg-login text-white text-center my-5">
-                    <span>
-                        <strong>Wow! </strong>Você está conectado! :)
-                    </span>
-                    <br />
-                    <span>
-                        <strong>Ops! </strong>Verifique se a senha ou usuário
-                        estão corretos! :(
-                    </span>
+                    {msg === "Y" && (
+                        <span>
+                            <strong>Wow! </strong>You are connected! :)
+                        </span>
+                    )}
+                    {msg === "N" && (
+                        <span>
+                            <strong>Ops! </strong>Something wrong with your
+                            email or password! :(
+                        </span>
+                    )}
                 </div>
 
                 <div className="opcoes-login mt-5 text-center">
                     <a href="#" className="mx-2">
-                        Recuperar Senha
+                        Recover Password
                     </a>
                     <span className="text-white">&#9733;</span>
                     <a href="#" className="mx-2">
-                        Quero Cadastrar
+                        I Wanna Join
                     </a>
                 </div>
             </form>

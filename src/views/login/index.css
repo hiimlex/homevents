@@ -9,10 +9,11 @@
 .btn-login {
     background-color: #fff;
     color: #614ea6;
+    transition: 0.2s ease-in;
 }
 
 .btn-login:hover {
-    background-color: #f21667;
+    background-color: #d83e77ee;
     color: #fff;
 }
 
@@ -23,5 +24,5 @@
 }
 
 .opcoes-login a:hover {
-    color: #f21667;
+    color: #d83e77ee;
 }
