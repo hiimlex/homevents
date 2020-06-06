@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FiMail, FiKey, FiEye, FiEyeOff } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 import "./index.css";
 import logo from "../../assets/logo.png";
@@ -10,8 +12,13 @@ function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [msg, setMsg] = useState();
+    const [visible, setVisible] = useState(false);
 
-    function SignIn() {
+    function SignIn(e) {
+        e.preventDefault();
+        if (!email || !password) {
+            setMsg("N");
+        }
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -20,78 +27,92 @@ function Login() {
             })
             .catch(() => {
                 setMsg("N");
+                setPassword();
             });
     }
 
+    function visiblePassword() {
+        setVisible(!visible);
+    }
+
     return (
-        <div className="login-content d-flex align-itens-center">
-            <form className="form-signin mx-auto">
-                <div className="d-flex align-itens-center justify-content-center">
-                    <img
-                        src={logo}
-                        className="img-fluid"
-                        alt="logo"
-                        style={{ width: 280, marginBottom: 0, marginTop: -80 }}
-                    />
-                </div>
-                <div className="text-center mb-4">
-                    <h1 className="h3 mb-3 font-weight-bold text-white">
-                        Enjoy to our Plataform
-                    </h1>
-                </div>
+        <div className="login-container">
+            <div className="login-content d-flex align-itens-center justify-content-center">
+                <form className="form-signin mx-auto">
+                    <div className="d-flex align-itens-center justify-content-center">
+                        <img src={logo} className="img-fluid" alt="HomEvent" />
+                    </div>
+                    <div className="text-center my-4">
+                        <h1 className="h3 font-weight-bold text-white">
+                            Enjoy to our Plataform
+                        </h1>
+                    </div>
+                    <div className="icon-input">
+                        <FiMail size="20" className="mr-2"></FiMail>
+                        <input
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                            }}
+                            type="email"
+                            className="form-control my-2 remove-border shadow-none"
+                            placeholder="Email"
+                        />
+                    </div>
+                    <div className="icon-input">
+                        <FiKey size="20" className="mr-2 "></FiKey>
+                        <div className="input-group">
+                            <input
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                }}
+                                type={visible ? "text" : "password"}
+                                className="form-control my-2 remove-border shadow-none"
+                                placeholder="Password"
+                            />
+                            <div className="input-group-append">
+                                <button
+                                    className="btn btn-light form-control remove-border shadow-none"
+                                    onClick={visiblePassword}
+                                    type="button"
+                                >
+                                    {visible ? (
+                                        <FiEye></FiEye>
+                                    ) : (
+                                        <FiEyeOff></FiEyeOff>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        className="btn btn-md btn-login btn-block font-weight-bold"
+                        type="submit"
+                        onClick={SignIn}
+                    >
+                        Sign In
+                    </button>
 
-                <input
-                    onChange={(e) => {
-                        setEmail(e.target.value);
-                    }}
-                    type="email"
-                    id="inputEmail"
-                    className="form-control my-2"
-                    placeholder="Email"
-                />
+                    <div className="text-white text-center my-1">
+                        {msg === "Y" && (
+                            <span>
+                                <strong>Wow! </strong>You are connected! :)
+                            </span>
+                        )}
+                        {msg === "N" && (
+                            <span>
+                                <strong>Ops! </strong>Something is wrong with
+                                your email or password! :(
+                            </span>
+                        )}
+                    </div>
 
-                <input
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
-                    type="password"
-                    id="inputPassword"
-                    className="form-control my-2"
-                    placeholder="Password"
-                />
-
-                <button
-                    className="btn btn-lg btn-login btn-block font-weight-bold"
-                    type="button"
-                    onClick={SignIn}
-                >
-                    Sign In
-                </button>
-
-                <div className="msg-login text-white text-center my-5">
-                    {msg === "Y" && (
-                        <span>
-                            <strong>Wow! </strong>You are connected! :)
-                        </span>
-                    )}
-                    {msg === "N" && (
-                        <span>
-                            <strong>Ops! </strong>Something wrong with your
-                            email or password! :(
-                        </span>
-                    )}
-                </div>
-
-                <div className="opcoes-login mt-5 text-center">
-                    <a href="#" className="mx-2">
-                        Recover Password
-                    </a>
-                    <span className="text-white">&#9733;</span>
-                    <a href="#" className="mx-2">
-                        I Wanna Join
-                    </a>
-                </div>
-            </form>
+                    <div className="options-login">
+                        <Link to="/recover">Recover Password</Link>
+                        <span className="text-white"> &#9733; </span>
+                        <Link to="/register">I Wanna Join</Link>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
