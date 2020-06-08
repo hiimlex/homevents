@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiMail, FiKey, FiEye, FiEyeOff } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import "./index.css";
 import logo from "../../assets/logo.png";
@@ -8,11 +8,15 @@ import logo from "../../assets/logo.png";
 import firebase from "../../config/firebase";
 import "firebase/auth";
 
+import { useSelector, useDispatch } from "react-redux";
+
 function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [msg, setMsg] = useState();
     const [visible, setVisible] = useState(false);
+
+    const dispatch = useDispatch();
 
     function SignIn(e) {
         e.preventDefault();
@@ -24,6 +28,7 @@ function Login() {
             .signInWithEmailAndPassword(email, password)
             .then(() => {
                 setMsg("Y");
+                dispatch({ type: "LOG_IN", userEmail: email });
             })
             .catch(() => {
                 setMsg("N");
@@ -37,6 +42,9 @@ function Login() {
 
     return (
         <div className="login-container">
+            {useSelector((state) => state.userLogged) > 0 ? (
+                <Redirect to="/home" />
+            ) : null}
             <div className="login-content d-flex align-itens-center justify-content-center">
                 <form className="form-signin mx-auto">
                     <div className="d-flex align-itens-center justify-content-center">

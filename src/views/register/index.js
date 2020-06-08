@@ -67,7 +67,7 @@ function Register() {
                                     setEmail(e.target.value);
                                 }}
                                 type="email"
-                                className="form-control my-2 "
+                                className="form-control my-2 remover-border shadow-none"
                                 placeholder="Email"
                             />
                         </div>
