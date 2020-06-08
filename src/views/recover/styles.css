@@ -1,0 +1,92 @@
+body {
+    background-color: #57459b;
+}
+
+.recover-container {
+    width: 60%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.recover-container .recover-content {
+    width: 100%;
+    padding: 8%;
+    background: #614ea6;
+    color: #fff;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recover-content {
+    max-width: 100%;
+    width: 100%;
+    padding: 15%;
+    margin: auto;
+    background-color: #614ea6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recover-container .recover-content form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.recover-container .recover-content form a {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s ease-in;
+}
+
+.recover-container .recover-content form a:hover {
+    color: #d83e77ee;
+}
+
+.recover-content form .btn-recover {
+    background-color: #fff;
+    color: #614ea6;
+    transition: 0.2s ease-in;
+}
+
+.icon-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.options-recover {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .recover-container {
+        width: 90%;
+    }
+    .recover-container .recover-content form {
+        width: 100%;
+        color: #fff;
+    }
+    .options-recover {
+        display: flex;
+        flex-flow: row;
+    }
+}

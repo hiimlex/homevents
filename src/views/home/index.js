@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { FiPower, FiHome, FiPlus } from "react-icons/fi";
+import { FiPower, FiHome, FiPlus, FiEdit } from "react-icons/fi";
 
-import "./index.css";
+import "./styles.css";
 
 import logo from "../../assets/logo.png";
 
@@ -32,19 +32,26 @@ function Home() {
                             alignSelf: "center",
                         }}
                     />
-
-                    <Link
-                        className="nav-link mr-2 remove-border"
-                        style={{ fontSize: 20 }}
-                    >
-                        Lorem ipsum dolor
-                    </Link>
+                    <div className="menu">
+                        <Link
+                            className="nav-link remove-border"
+                            style={{ fontSize: 18 }}
+                        >
+                            Add Event
+                        </Link>
+                        <Link
+                            className="nav-link remove-border"
+                            style={{ fontSize: 18 }}
+                        >
+                            My Events
+                        </Link>
+                    </div>
                     <button
                         type="button"
                         className="btn btn-lg btn-light remove-border"
                         onClick={SignOut}
                     >
-                        <FiPower size={18} />
+                        <FiPower />
                     </button>
                 </header>
                 <footer className="bottom-nav">
@@ -58,6 +65,11 @@ function Home() {
                             <li className="nav-item remove-border">
                                 <Link className="nav-link">
                                     <FiPlus size="24"></FiPlus>
+                                </Link>
+                            </li>
+                            <li className="nav-item remove-border">
+                                <Link className="nav-link">
+                                    <FiEdit size="24"></FiEdit>
                                 </Link>
                             </li>
                             <li

@@ -6,6 +6,7 @@ import store from "./store";
 import Login from "./views/login";
 import Register from "./views/register";
 import Home from "./views/home";
+import Recover from "./views/recover";
 
 import "./global.css";
 
@@ -16,6 +17,7 @@ function App() {
                 <Route exact path="/" component={Login}></Route>
                 <Route path="/register" component={Register}></Route>
                 <Route path="/home" component={Home}></Route>
+                <Route path="/recover" component={Recover}></Route>
             </Router>
         </Provider>
     );

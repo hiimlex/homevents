@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FiMail, FiKey, FiEye, FiEyeOff } from "react-icons/fi";
 import { Link, Redirect } from "react-router-dom";
 
-import "./index.css";
+import "./styles.css";
+
 import logo from "../../assets/logo.png";
 
 import firebase from "../../config/firebase";
@@ -28,7 +29,9 @@ function Login() {
             .signInWithEmailAndPassword(email, password)
             .then(() => {
                 setMsg("Y");
-                dispatch({ type: "LOG_IN", userEmail: email });
+                setTimeout(() => {
+                    dispatch({ type: "LOG_IN", userEmail: email });
+                }, 2000);
             })
             .catch(() => {
                 setMsg("N");
@@ -45,11 +48,10 @@ function Login() {
             {useSelector((state) => state.userLogged) > 0 ? (
                 <Redirect to="/home" />
             ) : null}
-            <div className="login-content d-flex align-itens-center justify-content-center">
+            <div className="login-content">
                 <form className="form-signin mx-auto">
-                    <div className="d-flex align-itens-center justify-content-center">
-                        <img src={logo} className="img-fluid" alt="HomEvent" />
-                    </div>
+                    <img src={logo} className="img-fluid" alt="HomEvent" />
+
                     <div className="text-center my-4">
                         <h1 className="h3 font-weight-bold text-white">
                             Enjoy to our Plataform
@@ -100,7 +102,7 @@ function Login() {
                         Sign In
                     </button>
 
-                    <div className="text-white text-center my-1">
+                    <div className="text-white text-center my-2">
                         {msg === "Y" && (
                             <span>
                                 <strong>Wow! </strong>You are connected! :)
@@ -114,7 +116,7 @@ function Login() {
                         )}
                     </div>
 
-                    <div className="options-login">
+                    <div className="options-login mt-n2">
                         <Link to="/recover">Recover Password</Link>
                         <span className="text-white"> &#9733; </span>
                         <Link to="/register">I Wanna Join</Link>

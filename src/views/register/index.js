@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FiArrowLeft, FiMail, FiKey, FiEyeOff, FiEye } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-import "./index.css";
+import "./styles.css";
 import logo from "../../assets/logo.png";
 
 import firebase from "../../config/firebase";
@@ -33,12 +33,16 @@ function Register() {
             .createUserWithEmailAndPassword(email, password)
             .then(() => {
                 setLoading(0);
-                setMsgType("Y");
+                setTimeout(() => {
+                    setMsgType("Y");
+                }, 2000);
             })
             .catch((err) => {
                 setLoading(0);
-                setMsgType("N");
-                setMsg(String(err));
+                setTimeout(() => {
+                    setMsgType("N");
+                    setMsg(String(err));
+                }, 500);
             });
     }
 
@@ -108,7 +112,7 @@ function Register() {
                         </div>
 
                         <div className="options-register">
-                            <Link to="" className="font-weight-medium">
+                            <Link to="" className="font-weight-medium my-2">
                                 <FiArrowLeft></FiArrowLeft> I already have a
                                 account.
                             </Link>

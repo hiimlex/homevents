@@ -1,18 +1,26 @@
 .home-container {
     width: 100%;
-    padding: 0 20px;
-    margin: 32px auto;
+    padding: 0 24px;
+    margin: 24px auto;
 }
 
 .home-container header {
     display: flex;
     align-items: center;
 
-    padding: 1%;
+    padding: 0.5%;
     background: #614ea6;
     color: #fff;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+.menu {
+    display: flex;
+    flex: 1 !important;
+    align-items: center !important;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .home-container header span {
@@ -23,17 +31,25 @@
 .home-container header a {
     color: #fff;
     width: 260px;
-    margin-left: auto;
-    margin-top: 0;
     transition: 0.3s ease-in;
+    float: right;
+    margin-right: -5%;
 }
 .home-container header a:hover {
     color: rgb(214, 214, 214);
 }
 
 .home-container header button {
-    background-color: #fff !important;
-    color: #614ea6 !important;
+    background-color: #614ea6 !important;
+    color: #fff !important;
+    font-size: 24px !important;
+    transition: 0.3s ease-in !important;
+}
+
+.home-container header button:hover {
+    background-color: #614ea6 !important;
+    color: rgb(214, 214, 214) !important;
+    font-size: 24px !important;
 }
 
 .remove-border {
@@ -110,6 +126,9 @@
     .home-container header {
         display: flex;
         justify-content: space-around;
+    }
+    .menu {
+        display: none;
     }
     .home-container header button {
         display: none;
