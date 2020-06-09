@@ -35,7 +35,7 @@ function Register() {
                 setLoading(0);
                 setTimeout(() => {
                     setMsgType("Y");
-                }, 2000);
+                }, 500);
             })
             .catch((err) => {
                 setLoading(0);
@@ -63,7 +63,7 @@ function Register() {
                         Create your Account!
                     </h1>
 
-                    <form className="form-register text-center mx-auto">
+                    <form className="text-center mx-auto">
                         <div className="icon-input">
                             <FiMail size="20" className="mr-2"></FiMail>
                             <input
@@ -102,7 +102,7 @@ function Register() {
                             </div>
                         </div>
 
-                        <div className="msg-login text-white text-center my-1">
+                        <div className="text-white text-center my-1">
                             {msgType === "Y" && (
                                 <span>
                                     <strong>Wow! </strong>You are a user now! :)

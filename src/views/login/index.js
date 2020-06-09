@@ -68,6 +68,7 @@ function Login() {
                             placeholder="Email"
                         />
                     </div>
+
                     <div className="icon-input">
                         <FiKey size="20" className="mr-2 "></FiKey>
                         <div className="input-group">

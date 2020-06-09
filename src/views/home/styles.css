@@ -115,6 +115,15 @@
     text-decoration: none;
     cursor: pointer;
 }
+.my-modal::-webkit-scrollbar {
+    background-color: #fff;
+    border-radius: 8 px;
+    width: 10px;
+}
+.my-modal::-webkit-scrollbar-thumb {
+    background-color: #614ea6;
+    border-radius: 8px;
+}
 
 @media only screen and (max-width: 768px) {
     .home-container header span {

@@ -36,6 +36,7 @@ function Home() {
                         <Link
                             className="nav-link remove-border"
                             style={{ fontSize: 18 }}
+                            to="/events/new"
                         >
                             Add Event
                         </Link>
@@ -63,7 +64,7 @@ function Home() {
                                 </Link>
                             </li>
                             <li className="nav-item remove-border">
-                                <Link className="nav-link">
+                                <Link className="nav-link" to="/events/new">
                                     <FiPlus size="24"></FiPlus>
                                 </Link>
                             </li>
