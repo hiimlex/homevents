@@ -49,7 +49,7 @@ function Login() {
                 <Redirect to="/home" />
             ) : null}
             <div className="login-content">
-                <form className="form-signin mx-auto">
+                <form className="mx-auto">
                     <img src={logo} className="img-fluid" alt="HomEvent" />
 
                     <div className="text-center my-4">
