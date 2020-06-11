@@ -56,3 +56,13 @@ body {
     background-color: #d83e77ee;
     color: #fff;
 }
+
+@media only screen and (max-width: 768px) {
+    .new-event-container {
+        width: 90%;
+    }
+    .new-event-container .new-event-content form {
+        width: 100%;
+        color: #fff;
+    }
+}

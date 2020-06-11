@@ -55,9 +55,7 @@ function Register() {
         <div className="register-container">
             <div className="content">
                 <section>
-                    <div className="d-flex align-itens-center justify-content-center">
-                        <img src={logo} className="img-fluid" alt="HomEvent" />
-                    </div>
+                    <img src={logo} className="img-fluid" alt="HomEvent" />
 
                     <h1 className="h3 my-4 font-weight-bold">
                         Create your Account!

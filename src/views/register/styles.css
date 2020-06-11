@@ -97,11 +97,6 @@ body {
     outline: none !important;
     border-style: none !important;
 }
-.remove-border {
-    border: none !important;
-    outline: none !important;
-    border-style: none !important;
-}
 
 .remove-border:hover {
     border: none !important;
@@ -114,7 +109,7 @@ body {
     border-style: none !important;
 }
 
-@media only screen and (max-width: 768) {
+@media only screen and (max-width: 768px) {
     .register-container {
         width: 90%;
     }
