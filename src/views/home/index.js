@@ -56,7 +56,7 @@ function Home() {
                     </button>
                 </header>
                 <footer className="bottom-nav">
-                    <nav className="navbar navbar-expa  nd-lg navbar-dark bg-color fixed-bottom">
+                    <nav className="navbar  navbar-dark bg-color fixed-bottom">
                         <ul className="navbar-nav bottom-nav">
                             <li className="nav-item active remove-border">
                                 <Link className="nav-link " to="/home">

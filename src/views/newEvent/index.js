@@ -21,7 +21,7 @@ export default function NewEvent() {
                     <img src={logo} className="img-fluid" alt="HomEvent" />
                 </form>
                 <footer className="bottom-nav">
-                    <nav className="navbar navbar-expa  nd-lg navbar-dark bg-color fixed-bottom">
+                    <nav className="navbar navbar-expand-lg navbar-dark bg-color fixed-bottom">
                         <ul className="navbar-nav bottom-nav">
                             <li className="nav-item  remove-border">
                                 <Link className="nav-link " to="/home">
