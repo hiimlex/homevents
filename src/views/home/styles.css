@@ -157,4 +157,7 @@
         width: 180px !important;
         height: auto !important;
     }
+    .card-deck {
+        margin-bottom: 10vh !important;
+    }
 }

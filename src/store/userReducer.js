@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     userEmail: "",
     userLogged: false,
+    firstTime: true,
 };
 
 function usuarioReducer(state = INITIAL_STATE, action) {
@@ -16,6 +17,11 @@ function usuarioReducer(state = INITIAL_STATE, action) {
                 ...state,
                 userLogged: false,
                 userEmail: "",
+            };
+        case "COMMOM_USER":
+            return {
+                ...state,
+                firstTime: false,
             };
         default:
             return state;
