@@ -4,7 +4,6 @@ body {
 
 .new-event-container {
     width: 60%;
-    height: 100vh;
     margin: auto;
     display: flex;
     align-items: center;
@@ -30,6 +29,8 @@ body {
     width: 100%;
     padding: 15%;
     margin: auto;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
     background-color: #614ea6;
 
     display: flex;
@@ -39,6 +40,7 @@ body {
 
 .new-event-container .new-event-content form {
     width: 100%;
+
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -57,6 +59,34 @@ body {
     color: #fff;
 }
 
+textarea::-webkit-scrollbar {
+    background-color: #614ea6;
+    border-radius: 8 px;
+    width: 10px;
+}
+textarea::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.new-event-container .new-event-content form a {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s ease-in;
+}
+
+.new-event-container .new-event-content form a:hover {
+    color: #d83e77ee;
+}
+
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-webkit-input-placeholder {
+    visibility: hidden !important;
+}
+
 @media only screen and (max-width: 768px) {
     .new-event-container {
         width: 90%;
@@ -64,5 +94,14 @@ body {
     .new-event-container .new-event-content form {
         width: 100%;
         color: #fff;
+        margin-top: 0;
+    }
+    .options-login {
+        display: flex;
+        flex-direction: row;
+    }
+    .new-event-content {
+        margin-top: 2vh;
+        margin-bottom: 14vh;
     }
 }
